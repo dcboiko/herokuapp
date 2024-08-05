@@ -1,10 +1,7 @@
 package com.herokuapp;
 
-import org.openqa.selenium.WebDriver;
-
 import com.herokuapp.action.AddRemoveElements;
 import com.herokuapp.action.Home;
-import com.herokuapp.page.HomePage;
 
 public class Main {
 
@@ -12,11 +9,20 @@ public class Main {
 
     public static void main(String[] args) {
 
-        HomePage homePage = new HomePage();
-        homePage.menuSelect("Add/Remove Elements");
+        Home home = new Home();
 
-        // addRemoveElementsPage = new AddRemoveElements();
-        // addRemoveElementsPage.addElements(driver);
+        // Scenario 1: Adding a single element to display the delete button
+        home.setup();
+        home.clickLnk_addRemoveElement();
+        home.addSingleElement();
+        home.quit();
+
+        // Scenario 2: Deleting an added element
+        home.setup();
+        home.clickLnk_addRemoveElement();
+        home.addSingleElement();
+        home.deleteElement();
+        home.quit();
     }
 
 }
