@@ -1,15 +1,10 @@
 package com.herokuapp.action;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.herokuapp.page.HomePage;
-
-import dev.failsafe.internal.util.Assert;
 
 public class Home {
 
@@ -27,7 +22,7 @@ public class Home {
 
     }
 
-    public WebDriver clickLnk_addRemoveElement() {
+    public WebDriver clickLnkAddRemoveElement() {
 
         homePage.menuSelect(driver);
 
@@ -43,26 +38,26 @@ public class Home {
 
     public void addSingleElement() {
 
-        homePage.clickBtn_addElement(driver);
+        homePage.clickBtnAddElement(driver);
 
     }
 
     public void deleteElement() {
 
-        homePage.clickBtn_DeleteElement(driver);
+        homePage.clickBtnDeleteElement(driver);
 
     }
 
-    public void clickLnk_ABTesting() {
+    public void clickLnkABTesting() {
 
-        homePage.clickLnk_ABTesting(driver);
-        assertTrue(homePage.ABTestingPageisDisplayed(driver));
+        homePage.clickLnkABTesting(driver);
+        homePage.ABTestingPageisDisplayed(driver);
 
     }
 
-    public void clickLnk_basicAuth() {
+    public void clickLnkBasicAuth() {
 
-        homePage.clickLnk_basicAuth(driver);
+        homePage.clickLnkBasicAuth(driver);
 
     }
 

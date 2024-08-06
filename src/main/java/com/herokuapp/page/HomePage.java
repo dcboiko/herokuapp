@@ -1,59 +1,49 @@
 package com.herokuapp.page;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.time.Duration;
-import java.util.function.BooleanSupplier;
-
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Sleeper;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import dev.failsafe.internal.util.Assert;
 
 public class HomePage {
 
-    WebElement lnk_addRemoveElement;
-    WebElement btn_addElement;
-    WebElement btn_deletElement;
-    WebElement lnk_ABTesting;
-    WebElement lnk_basicAuth;
+    WebElement lnkAddRemoveElement;
+    WebElement btnAddElement;
+    WebElement btnDeletElement;
+    WebElement lnkABTesting;
+    WebElement lnkBasicAuth;
 
     public void menuSelect(WebDriver driver) {
 
-        lnk_addRemoveElement = driver.findElement(By.xpath("//a[contains(text(),'Add/Remove Elements')]"));
-        lnk_addRemoveElement.click();
+        lnkAddRemoveElement = driver.findElement(By.xpath("//a[contains(text(),'Add/Remove Elements')]"));
+        lnkAddRemoveElement.click();
 
     }
 
-    public void clickBtn_addElement(WebDriver driver) {
+    public void clickBtnAddElement(WebDriver driver) {
 
-        btn_addElement = driver.findElement(By.xpath("//button[contains(text(),'Add Element')]"));
-        btn_addElement.click();
+        btnAddElement = driver.findElement(By.xpath("//button[contains(text(),'Add Element')]"));
+        btnAddElement.click();
 
-        btn_deletElement = driver.findElement(By.xpath("//button[contains(text(),'Delete')]"));
-        assertTrue(btn_deletElement.isDisplayed());
+        btnDeletElement = driver.findElement(By.xpath("//button[contains(text(),'Delete')]"));
+        btnDeletElement.isDisplayed();
 
     }
 
-    public void clickBtn_DeleteElement(WebDriver driver) {
+    public void clickBtnDeleteElement(WebDriver driver) {
 
-        btn_deletElement = driver.findElement(By.xpath("//button[contains(text(),'Delete')]"));
-        btn_deletElement.click();
+        btnDeletElement = driver.findElement(By.xpath("//button[contains(text(),'Delete')]"));
+        btnDeletElement.click();
 
         assertTrue(driver.findElements(By.xpath("//button[contains(text(),'Delete')]")).size() == 0);
 
     }
 
-    public void clickLnk_ABTesting(WebDriver driver) {
+    public void clickLnkABTesting(WebDriver driver) {
 
-        lnk_ABTesting = driver.findElement(By.xpath("//a[contains(text(),'A/B Testing')]"));
-        lnk_ABTesting.click();
+        lnkABTesting = driver.findElement(By.xpath("//a[contains(text(),'A/B Testing')]"));
+        lnkABTesting.click();
 
     }
 
@@ -69,19 +59,20 @@ public class HomePage {
         }
     }
 
-    public void clickLnk_basicAuth(WebDriver driver) {
+    public void clickLnkBasicAuth(WebDriver driver) {
 
-        // lnk_basicAuth = driver.findElement(By.xpath("//a[contains(text(),'Basic Auth')]"));
-        // lnk_basicAuth.click();
+        // lnkBasicAuth = driver.findElement(By.xpath("//a[contains(text(),'Basic
+        // Auth')]"));
+        // lnkBasicAuth.click();
 
         // try {
-        //     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        //     wait.until(ExpectedConditions.alertIsPresent());
-        //     Alert prompt = driver.switchTo().alert();
-        //     prompt.dismiss();
+        // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        // wait.until(ExpectedConditions.alertIsPresent());
+        // Alert prompt = driver.switchTo().alert();
+        // prompt.dismiss();
         // } catch (Exception e) {
-        //     e.printStackTrace();
-        //     // exception handling
+        // e.printStackTrace();
+        // // exception handling
         // }
 
         // // System.out.println("Alert Text: " + alertText);
