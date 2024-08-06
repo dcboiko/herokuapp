@@ -1,5 +1,7 @@
 package com.herokuapp.action;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -48,6 +50,19 @@ public class Home {
     public void deleteElement() {
 
         homePage.clickBtn_DeleteElement(driver);
+
+    }
+
+    public void clickLnk_ABTesting() {
+
+        homePage.clickLnk_ABTesting(driver);
+        assertTrue(homePage.ABTestingPageisDisplayed(driver));
+
+    }
+
+    public void clickLnk_basicAuth() {
+
+        homePage.clickLnk_basicAuth(driver);
 
     }
 
