@@ -1,59 +1,67 @@
 package com.herokuapp.page;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.time.Duration;
-import java.util.function.BooleanSupplier;
-
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Sleeper;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-import dev.failsafe.internal.util.Assert;
+import com.herokuapp.utils.WebDriverManager;
 
 public class HomePage {
 
-    WebElement lnk_addRemoveElement;
-    WebElement btn_addElement;
-    WebElement btn_deletElement;
-    WebElement lnk_ABTesting;
-    WebElement lnk_basicAuth;
+    String url = "https://the-internet.herokuapp.com/";
 
-    public void menuSelect(WebDriver driver) {
+    WebDriver driver;
 
-        lnk_addRemoveElement = driver.findElement(By.xpath("//a[contains(text(),'Add/Remove Elements')]"));
-        lnk_addRemoveElement.click();
+    @FindBy(xpath = "//a[contains(text(),'Add/Remove Elements')]")
+    private WebElement lnkAddRemoveElement;
 
-    }
+    @FindBy(xpath = "//button[contains(text(),'Add Element')]")
+    private WebElement btnAddElement;
 
-    public void clickBtn_addElement(WebDriver driver) {
+    @FindBy(xpath = "//button[contains(text(),'Delete')]")
+    private WebElement btnDeletElement;
 
-        btn_addElement = driver.findElement(By.xpath("//button[contains(text(),'Add Element')]"));
-        btn_addElement.click();
+    @FindBy(xpath = "//a[contains(text(),'A/B Testing')]")
+    private WebElement lnkABTesting;
 
-        btn_deletElement = driver.findElement(By.xpath("//button[contains(text(),'Delete')]"));
-        assertTrue(btn_deletElement.isDisplayed());
+    private WebElement lnkBasicAuth;
 
-    }
+    public HomePage(WebDriver driver) {
 
-    public void clickBtn_DeleteElement(WebDriver driver) {
+        driver = WebDriverManager.getDriver();
+        driver.get(url);
+        driver.manage().window().maximize();
 
-        btn_deletElement = driver.findElement(By.xpath("//button[contains(text(),'Delete')]"));
-        btn_deletElement.click();
-
-        assertTrue(driver.findElements(By.xpath("//button[contains(text(),'Delete')]")).size() == 0);
+        PageFactory.initElements(driver, this);
 
     }
 
-    public void clickLnk_ABTesting(WebDriver driver) {
+    public void menuSelect() {
 
-        lnk_ABTesting = driver.findElement(By.xpath("//a[contains(text(),'A/B Testing')]"));
-        lnk_ABTesting.click();
+        lnkAddRemoveElement.click();
+
+    }
+
+    public void clickBtnAddElement() {
+
+        btnAddElement.click();
+
+        btnDeletElement.isDisplayed();
+
+    }
+
+    public void clickBtnDeleteElement() {
+
+        btnDeletElement.click();
+        // assertTrue(driver.findElements(By.xpath("//button[contains(text(),'Delete')]")).isEmpty());
+
+    }
+
+    public void clickLnkABTesting(WebDriver driver) {
+
+        lnkABTesting.click();
 
     }
 
@@ -69,19 +77,20 @@ public class HomePage {
         }
     }
 
-    public void clickLnk_basicAuth(WebDriver driver) {
+    public void clickLnkBasicAuth(WebDriver driver) {
 
-        // lnk_basicAuth = driver.findElement(By.xpath("//a[contains(text(),'Basic Auth')]"));
-        // lnk_basicAuth.click();
+        // lnkBasicAuth = driver.findElement(By.xpath("//a[contains(text(),'Basic
+        // Auth')]"));
+        // lnkBasicAuth.click();
 
         // try {
-        //     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        //     wait.until(ExpectedConditions.alertIsPresent());
-        //     Alert prompt = driver.switchTo().alert();
-        //     prompt.dismiss();
+        // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        // wait.until(ExpectedConditions.alertIsPresent());
+        // Alert prompt = driver.switchTo().alert();
+        // prompt.dismiss();
         // } catch (Exception e) {
-        //     e.printStackTrace();
-        //     // exception handling
+        // e.printStackTrace();
+        // // exception handling
         // }
 
         // // System.out.println("Alert Text: " + alertText);

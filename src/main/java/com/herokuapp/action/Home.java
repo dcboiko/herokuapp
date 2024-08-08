@@ -1,68 +1,33 @@
 package com.herokuapp.action;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.herokuapp.page.*;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.herokuapp.page.HomePage;
-
-import dev.failsafe.internal.util.Assert;
 
 public class Home {
 
     WebDriver driver;
+    HomePage homePage;
     WebDriverWait wait;
-    String url = "https://the-internet.herokuapp.com/";
 
-    HomePage homePage = new HomePage();
+    public void clickLnkAddRemoveElement() {
 
-    public void setup() {
-
-        this.driver = new ChromeDriver();
-        driver.get(url);
-        driver.manage().window().maximize();
+        homePage = new HomePage(driver);
+        homePage.menuSelect();
 
     }
 
-    public WebDriver clickLnk_addRemoveElement() {
+    public void clickLnkABTesting() {
 
-        homePage.menuSelect(driver);
-
-        return driver;
-
-    }
-
-    public void quit() {
-
-        driver.quit();
+        homePage.clickLnkABTesting(driver);
+        homePage.ABTestingPageisDisplayed(driver);
 
     }
 
-    public void addSingleElement() {
+    public void clickLnkBasicAuth() {
 
-        homePage.clickBtn_addElement(driver);
-
-    }
-
-    public void deleteElement() {
-
-        homePage.clickBtn_DeleteElement(driver);
-
-    }
-
-    public void clickLnk_ABTesting() {
-
-        homePage.clickLnk_ABTesting(driver);
-        assertTrue(homePage.ABTestingPageisDisplayed(driver));
-
-    }
-
-    public void clickLnk_basicAuth() {
-
-        homePage.clickLnk_basicAuth(driver);
+        homePage.clickLnkBasicAuth(driver);
 
     }
 
