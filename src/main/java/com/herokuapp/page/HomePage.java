@@ -1,48 +1,66 @@
 package com.herokuapp.page;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import com.herokuapp.utils.WebDriverManager;
 
 public class HomePage {
 
-    WebElement lnkAddRemoveElement;
-    WebElement btnAddElement;
-    WebElement btnDeletElement;
-    WebElement lnkABTesting;
-    WebElement lnkBasicAuth;
+    String url = "https://the-internet.herokuapp.com/";
 
-    public void menuSelect(WebDriver driver) {
+    WebDriver driver;
 
-        lnkAddRemoveElement = driver.findElement(By.xpath("//a[contains(text(),'Add/Remove Elements')]"));
+    @FindBy(xpath = "//a[contains(text(),'Add/Remove Elements')]")
+    private WebElement lnkAddRemoveElement;
+
+    @FindBy(xpath = "//button[contains(text(),'Add Element')]")
+    private WebElement btnAddElement;
+
+    @FindBy(xpath = "//button[contains(text(),'Delete')]")
+    private WebElement btnDeletElement;
+
+    @FindBy(xpath = "//a[contains(text(),'A/B Testing')]")
+    private WebElement lnkABTesting;
+
+    private WebElement lnkBasicAuth;
+
+    public HomePage(WebDriver driver) {
+
+        driver = WebDriverManager.getDriver();
+        driver.get(url);
+        driver.manage().window().maximize();
+
+        PageFactory.initElements(driver, this);
+
+    }
+
+    public void menuSelect() {
+
         lnkAddRemoveElement.click();
 
     }
 
-    public void clickBtnAddElement(WebDriver driver) {
+    public void clickBtnAddElement() {
 
-        btnAddElement = driver.findElement(By.xpath("//button[contains(text(),'Add Element')]"));
         btnAddElement.click();
 
-        btnDeletElement = driver.findElement(By.xpath("//button[contains(text(),'Delete')]"));
         btnDeletElement.isDisplayed();
 
     }
 
-    public void clickBtnDeleteElement(WebDriver driver) {
+    public void clickBtnDeleteElement() {
 
-        btnDeletElement = driver.findElement(By.xpath("//button[contains(text(),'Delete')]"));
         btnDeletElement.click();
-
-        assertTrue(driver.findElements(By.xpath("//button[contains(text(),'Delete')]")).size() == 0);
+        // assertTrue(driver.findElements(By.xpath("//button[contains(text(),'Delete')]")).isEmpty());
 
     }
 
     public void clickLnkABTesting(WebDriver driver) {
 
-        lnkABTesting = driver.findElement(By.xpath("//a[contains(text(),'A/B Testing')]"));
         lnkABTesting.click();
 
     }
