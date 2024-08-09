@@ -44,21 +44,6 @@ public class HomePage {
 
     }
 
-    public void clickBtnAddElement() {
-
-        btnAddElement.click();
-
-        btnDeletElement.isDisplayed();
-
-    }
-
-    public void clickBtnDeleteElement() {
-
-        btnDeletElement.click();
-        // assertTrue(driver.findElements(By.xpath("//button[contains(text(),'Delete')]")).isEmpty());
-
-    }
-
     public void clickLnkABTesting(WebDriver driver) {
 
         lnkABTesting.click();
