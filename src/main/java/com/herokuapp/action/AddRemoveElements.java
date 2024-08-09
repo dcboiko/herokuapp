@@ -1,5 +1,6 @@
 package com.herokuapp.action;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import com.herokuapp.page.AddRemoveElementsPage;
@@ -10,10 +11,14 @@ public class AddRemoveElements {
     WebDriver driver = WebDriverManager.getDriver();
     AddRemoveElementsPage addRemoveElementsPage;
 
-    public void addElements() {
+    public void addElements(int elements) {
 
-        addRemoveElementsPage = new AddRemoveElementsPage(driver);
-        addRemoveElementsPage.clickBtnAddElement();
+        for (int i = 0; i < elements; i++) {
+
+            addRemoveElementsPage = new AddRemoveElementsPage(driver);
+            addRemoveElementsPage.clickBtnAddElement();
+
+        }
 
     }
 
@@ -26,6 +31,12 @@ public class AddRemoveElements {
     public void deleteElement() {
 
         addRemoveElementsPage.clickBtnDeleteElement();
+
+    }
+
+    public void checkVisibilityOfDeleteButton(int elements) {
+
+        addRemoveElementsPage.checkVisibilityOfDeleteButton(elements);
 
     }
 
