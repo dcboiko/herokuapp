@@ -10,7 +10,7 @@ public class ABTesting {
     WebDriver driver = WebDriverManager.getDriver();
     ABTestingPage aBTestingPage;
 
-    public void validateProperties(String properties) {
+    public void validateProperties() {
 
         aBTestingPage = new ABTestingPage(driver);
         aBTestingPage.aBTestingPageisDisplayed();
