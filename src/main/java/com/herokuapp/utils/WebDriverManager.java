@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class WebDriverManager {
 
     private static WebDriver driver;
+    private static String url = "https://the-internet.herokuapp.com/";
 
     private WebDriverManager() {
     }
@@ -14,6 +15,8 @@ public class WebDriverManager {
 
         if (driver == null) {
             driver = new ChromeDriver();
+            driver.get(url);
+            driver.manage().window().maximize();
         }
         return driver;
 

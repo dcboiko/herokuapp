@@ -11,24 +11,10 @@ public class Home {
     HomePage homePage;
     WebDriverWait wait;
 
-    public void clickLnkAddRemoveElement() {
+    public void selectMenu(String menu) {
 
         homePage = new HomePage(driver);
-        homePage.menuSelect();
+        homePage.clickMenu(menu);
 
     }
-
-    public void clickLnkABTesting() {
-
-        homePage.clickLnkABTesting(driver);
-        homePage.ABTestingPageisDisplayed(driver);
-
-    }
-
-    public void clickLnkBasicAuth() {
-
-        homePage.clickLnkBasicAuth(driver);
-
-    }
-
 }
