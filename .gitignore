@@ -1,0 +1,18 @@
+# Ignore all class files
+*.class
+
+# Ignore all log files
+*.log
+
+# Ignore specific directories
+/target/
+
+# Ignore IDE/project files
+.idea/
+/*.iml
+*.swp
+.vscode/*
+
+# Ignore environment files
+.env
+.env.local

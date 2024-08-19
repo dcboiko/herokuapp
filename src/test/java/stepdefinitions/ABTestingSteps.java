@@ -4,7 +4,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import org.openqa.selenium.support.events.WebDriverListener;
+
 import com.herokuapp.action.*;
+import com.herokuapp.utils.WebDriverManager;
 
 public class ABTestingSteps {
     Home home;
@@ -26,9 +29,9 @@ public class ABTestingSteps {
     }
 
     @Then("the page {string} is correctly displayed")
-    public void the_page_is_correctly_displayed() {
+    public void the_page_is_correctly_displayed(String page) {
 
         aBTesting.validateProperties();
-        
+
     }
 }

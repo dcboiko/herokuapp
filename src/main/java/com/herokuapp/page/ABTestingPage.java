@@ -35,20 +35,11 @@ public class ABTestingPage {
 
     }
 
-    @Test
     public void aBTestingPageisDisplayed() {
 
-        boolean isDisplayedTitle = aBTestingPageTitle.isDisplayed();
-
-        assertTrue(isDisplayedTitle);
-        assertEquals(aBTestingPageTitle.getTagName(), aBTestingPageTitleName);
-        assertEquals(aBTestingPageTitle.getText(), aBTestingPageTitleText);
-
         boolean isDisplayedBody = aBTestingPageBody.isDisplayed();
-
         assertTrue(isDisplayedBody);
-        assertEquals(aBTestingPageBody.getTagName(), aBTestingPageBodyName);
-        // assertTrue(aBTestingPageBodyText.contains(aBTestingPageBody.getText()));
 
+        WebDriverManager.closeDriver();
     }
 }

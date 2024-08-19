@@ -2,13 +2,14 @@ import org.junit.runner.RunWith;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import io.cucumber.junit.platform.engine.*;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
     features = "src/test/resources/features",
     // tags = "@Test",
-    plugin = {"summary","pretty"/*, "html:target/cucumber-reports.html" */},
-    publish = true,
+    plugin = {"summary","pretty", "html:target/cucumber-reports.html"},
+    // publish = true,
     monochrome = true
 )
 
