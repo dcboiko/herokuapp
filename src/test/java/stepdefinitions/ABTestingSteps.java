@@ -26,9 +26,9 @@ public class ABTestingSteps {
     }
 
     @Then("the page {string} is correctly displayed")
-    public void the_page_is_correctly_displayed() {
+    public void the_page_is_correctly_displayed(String page) {
 
         aBTesting.validateProperties();
-        
+
     }
 }

@@ -14,8 +14,6 @@ public class ABTesting {
 
         aBTestingPage = new ABTestingPage(driver);
         aBTestingPage.aBTestingPageisDisplayed();
-        
-        WebDriverManager.closeDriver();
 
     }
 }
