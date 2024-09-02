@@ -4,10 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import org.openqa.selenium.support.events.WebDriverListener;
-
 import com.herokuapp.action.*;
-import com.herokuapp.utils.WebDriverManager;
 
 public class ABTestingSteps {
     Home home;

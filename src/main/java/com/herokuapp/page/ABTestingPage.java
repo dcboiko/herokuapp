@@ -1,8 +1,5 @@
 package com.herokuapp.page;
 
-import org.testng.annotations.*;
-
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.openqa.selenium.WebDriver;
