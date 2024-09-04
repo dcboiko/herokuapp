@@ -8,11 +8,11 @@ public class HomeSteps {
 
     Home home;
 
-    @Given("I access the menu Add\\/Remove Elements em herokuapp")
-    public void i_access_the_menu_add_remove_elements_em_herokuapp() {
+    @Given("I access the menu {string} em herokuapp")
+    public void i_access_the_menu_em_herokuapp(String menu) {
 
         home = new Home();
-        home.clickLnkAddRemoveElement();
+        home.selectMenu(menu);
 
     }
 

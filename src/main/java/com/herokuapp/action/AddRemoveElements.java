@@ -10,10 +10,14 @@ public class AddRemoveElements {
     WebDriver driver = WebDriverManager.getDriver();
     AddRemoveElementsPage addRemoveElementsPage;
 
-    public void addElements() {
+    public void addElements(int elements) {
 
-        addRemoveElementsPage = new AddRemoveElementsPage(driver);
-        addRemoveElementsPage.clickBtnAddElement();
+        for (int i = 0; i < elements; i++) {
+
+            addRemoveElementsPage = new AddRemoveElementsPage(driver);
+            addRemoveElementsPage.clickBtnAddElement();
+
+        }
 
     }
 
@@ -29,20 +33,9 @@ public class AddRemoveElements {
 
     }
 
-    // public void removeElements() {
-    // setup();
+    public void checkVisibilityOfDeleteButton(int elements) {
 
-    // driver.findElement(By.xpath(lnk_addRemoveElement)).click();
-    // driver.findElement(By.xpath(btn_addElement)).click();
+        addRemoveElementsPage.checkVisibilityOfDeleteButton(elements);
 
-    // WebElement
-    // driver.findElement(By.xpath(btn_removeElement)).click();
-    // wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(btn_addElement)));
-
-    // Assert.assertFalse("Button should not be displayed",
-    // btn_addElement.isDisplayed());
-
-    // driver.quit();
-
-    // }
+    }
 }
