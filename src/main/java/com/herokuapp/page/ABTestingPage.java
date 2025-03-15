@@ -38,5 +38,6 @@ public class ABTestingPage {
         assertTrue(isDisplayedBody);
 
         WebDriverManager.closeDriver();
+
     }
 }

@@ -1,5 +1,7 @@
 package com.herokuapp.action;
 
+import static org.junit.Assert.assertTrue;
+
 import org.openqa.selenium.WebDriver;
 
 import com.herokuapp.page.ABTestingPage;
@@ -10,10 +12,11 @@ public class ABTesting {
     WebDriver driver = WebDriverManager.getDriver();
     ABTestingPage aBTestingPage;
 
-    public void validateProperties() {
+    public void pageCorrectlyDisplayed(String page) {
 
         aBTestingPage = new ABTestingPage(driver);
-        aBTestingPage.aBTestingPageisDisplayed();
+        System.out.println(page);
+        assertTrue(aBTestingPage.getClass().getName().contains(page));
 
     }
 }

@@ -6,7 +6,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
     features = "src/test/resources/features",
-    // tags = "@Test",
+    tags = "@ABTesting",
     plugin = {"summary","pretty"/*, "html:target/cucumber-reports.html" */},
     publish = true,
     monochrome = true
